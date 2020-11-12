@@ -20,3 +20,4 @@ process to complete all 4 instructions while the I/O process waits. Max time is 
 is in the READY state for a long time. It issued further I/O so running it might have cut time CPU usage.
 
 7. Running a process that just completed I/O seems a good idea because it might issue further I/O.
+
