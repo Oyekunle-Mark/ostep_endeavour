@@ -9,6 +9,9 @@ Perhaps a race condition.
 3. Yes, by performing some long running task in the parent process. The scheduler will switch to the child process
 before printing "Goodbye", runs the child process to completion which prints "Hello", then switches back to parent process to complete it.
 
+4.
+
 5. Wait returns the process id of the child process. When you wait in the child process, it returns -1 as the return value.
 Signifying that the wait fails.
 
+6. waitpid would useful to wait for a specific child process in case the calling process has forked more than one child processes.
