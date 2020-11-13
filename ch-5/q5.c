@@ -16,6 +16,8 @@ int main(int argc, char *argv[]) {
         exit(1);
     } else if (cid == 0) {
         printf("Child process id pid(%d)\n", (int) getpid());
+        int waitRet = wait(NULL);
+        printf("Return value of wait in child: %d\n", waitRet);
     } else {
         int waitRet = wait(NULL);
         printf("Return value of wait in parent: %d\n", waitRet);
