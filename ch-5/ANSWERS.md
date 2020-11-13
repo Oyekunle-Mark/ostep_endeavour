@@ -16,4 +16,5 @@ Signifying that the wait fails.
 
 6. waitpid would useful to wait for a specific child process in case the calling process has forked more than one child processes.
 
-7. 
+7. After closing standard output in the child process, the print does nothing.
+
