@@ -15,3 +15,5 @@ before printing "Goodbye", runs the child process to completion which prints "He
 Signifying that the wait fails.
 
 6. waitpid would useful to wait for a specific child process in case the calling process has forked more than one child processes.
+
+7. 
