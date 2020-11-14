@@ -28,8 +28,7 @@ int main() {
     long seconds = end.tv_sec - start.tv_sec;
     long micro = ((seconds * 1000000) + end.tv_usec) - start.tv_usec;
 
-    printf("Time elapsed in seconds is %ld and time elapsed in microseconds is %ld for %ld calls\n", seconds, micro,
-           EXECUTION_COUNT);
+    printf("Total time elapsed in microseconds is %ld for %ld calls\n", micro, EXECUTION_COUNT);
     printf("Average time for a single system call is %ld\n", micro / EXECUTION_COUNT);
 
     return 0;
