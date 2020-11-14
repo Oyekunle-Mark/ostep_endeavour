@@ -5,7 +5,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
+#include <unistd.h>
 
 int main() {
+    struct timeval start, end;
+    const size_t EXECUTION_COUNT = 1000;
+
+    gettimeofday(&start, NULL);
+
+    for (size_t i = 0; i < EXECUTION_COUNT; ++i) {
+        read(STDIN_FILENO, NULL, 0);
+    }
+
+    gettimeofday(&end, NULL);
+
+    u_int64_t startInMicro = start.tv_sec * 1000000 + start.tv_usec;
+    u_int64_t endInMicro = end.tv_sec * 1000000 + end.tv_usec;
+    u_int64_t averageInMicro = (startInMicro - endInMicro) / EXECUTION_COUNT;
+
+    printf("Average time for a single system call is %lld microseconds", averageInMicro);
+
     return 0;
 }
