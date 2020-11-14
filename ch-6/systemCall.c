@@ -19,11 +19,18 @@ int main() {
 
     gettimeofday(&end, NULL);
 
-    u_int64_t startInMicro = start.tv_sec * 1000000 + start.tv_usec;
-    u_int64_t endInMicro = end.tv_sec * 1000000 + end.tv_usec;
-    u_int64_t averageInMicro = (startInMicro - endInMicro) / EXECUTION_COUNT;
+//    u_int64_t startInMicro = start.tv_sec * 1000000000 + start.tv_usec;
+//    u_int64_t endInMicro = end.tv_sec * 1000000000 + end.tv_usec;
+//    u_int64_t averageInMicro = (endInMicro - startInMicro) / EXECUTION_COUNT;
+//
+//    printf("Average time for a single system call is %lld microseconds", averageInMicro);
 
-    printf("Average time for a single system call is %lld microseconds", averageInMicro);
+    long seconds = end.tv_sec - start.tv_sec;
+    long micro = ((seconds * 1000000) + end.tv_usec) - start.tv_usec;
+
+    printf("Time elapsed in seconds is %ld and time elapsed in microseconds is %ld for %ld calls\n", seconds, micro,
+           EXECUTION_COUNT);
+    printf("Average time for a single system call is %ld\n", micro / EXECUTION_COUNT);
 
     return 0;
 }
