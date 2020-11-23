@@ -12,15 +12,19 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    char *ptr = malloc((int) argv[1] * KILOBYTE * KILOBYTE);
+    char *argument = argv[1];
+    unsigned long size = atoi(argument) * KILOBYTE * KILOBYTE;
+    int *ptr = malloc(size);
 
     if (ptr == NULL) {
         fprintf(stderr, "Unable to allocate.\n");
         exit(1);
     }
 
-    for (int i = 0; i < sizeof(ptr); ++i)
-        printf("%d - %c", i, ptr[i]);
+    for (size_t i = 0; i < size; ++i)
+        printf("%zu - %d", i, ptr[i]);
+
+    free(ptr);
 
     return 0;
 }
