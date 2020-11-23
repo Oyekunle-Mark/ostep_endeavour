@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 
     char *argument = argv[1];
     unsigned long size = atoi(argument) * KILOBYTE * KILOBYTE;
-    int *ptr = malloc(size);
+    char *ptr = (char *) malloc(size);
 
     if (ptr == NULL) {
         fprintf(stderr, "Unable to allocate.\n");
