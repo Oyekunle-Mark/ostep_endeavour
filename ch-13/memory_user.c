@@ -8,13 +8,18 @@
 
 int main(int argc, char *argv[]) {
     if (argc <= 1) {
-        fprintf(stderr, "No command line arguments provided");
+        fprintf(stderr, "No command line arguments provided\n");
         exit(1);
     }
 
-    char *ptr = malloc((int) argv(1) * KILOBYTE * KILOBYTE);
+    char *ptr = malloc((int) argv[1] * KILOBYTE * KILOBYTE);
 
-    for (int i; i < sizeof(ptr); ++i)
+    if (ptr == NULL) {
+        fprintf(stderr, "Unable to allocate.\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < sizeof(ptr); ++i)
         printf("%d - %c", i, ptr[i]);
 
     return 0;
